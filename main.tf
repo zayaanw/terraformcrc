@@ -23,7 +23,7 @@ provider "aws" {
 
 #Polices & Roles
 
-data "aws_iam_policy" "dynamodbpolicy" {
+/* data "aws_iam_policy" "dynamodbpolicy" {
   name = "AmazonDynamoDBFullAccess"
 }
 
@@ -51,17 +51,17 @@ resource "aws_iam_role_policy_attachment" "attach-dynamodb" {
   role       = aws_iam_role.iam_for_lambda.name
   policy_arn = "arn:aws:iam::aws:policy/AmazonDynamoDBFullAccess"
 }
+ */
+// #Lambda & DynamoDB 
 
-/* #Lambda & DynamoDB 
-
-resource "aws_lambda_function" "Visitor_Lambda" {
+/*  resource "aws_lambda_function" "Visitor_Lambda" {
   filename      = "lambda_function_payload_new.zip"
   function_name = "terraformlambda"
   role          = aws_iam_role.iam_for_lambda.arn
 
   handler = "lambda_function.lambda_handler"
   runtime = "python3.9"
-}
+} */
 
 resource "aws_dynamodb_table" "terraformdynamo" {
   name         = "SiteCounter"
@@ -78,7 +78,7 @@ resource "aws_dynamodb_table" "terraformdynamo" {
 
 resource "aws_api_gateway_rest_api" "api" {
   name        = "api"
-  description = "This is my API for demonstration purposes"
+  description = "API for Cloud Resume Challenge"
 }
 
 resource "aws_api_gateway_resource" "resource" {
@@ -111,14 +111,14 @@ resource "aws_api_gateway_method_response" "response_200" {
   response_parameters = { "method.response.header.Access-Control-Allow-Origin" = true } 
 }
 
-# Lambda
+/* # Lambda
 resource "aws_lambda_permission" "apigw_lambda" {
   statement_id  = "AllowExecutionFromAPIGateway"
   action        = "lambda:InvokeFunction"
   function_name = aws_lambda_function.Visitor_Lambda.function_name
   principal     = "apigateway.amazonaws.com"
 
-}
+} */
 
 #Gateway/Deployment
 
@@ -142,4 +142,4 @@ resource "aws_api_gateway_stage" "gwstage" {
   deployment_id = aws_api_gateway_deployment.gatewaydeploy.id
   rest_api_id   = aws_api_gateway_rest_api.api.id
   stage_name    = "CRCPROD"
-} */
+} 
