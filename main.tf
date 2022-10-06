@@ -74,7 +74,7 @@ resource "aws_dynamodb_table" "terraformdynamo" {
   }
 }
 
-#API Gateway
+/* #API Gateway
 
 resource "aws_api_gateway_rest_api" "api" {
   name        = "api"
@@ -110,7 +110,7 @@ resource "aws_api_gateway_method_response" "response_200" {
   status_code = "200"
   response_parameters = { "method.response.header.Access-Control-Allow-Origin" = true } 
 }
-
+ */
 /* # Lambda
 resource "aws_lambda_permission" "apigw_lambda" {
   statement_id  = "AllowExecutionFromAPIGateway"
@@ -122,7 +122,7 @@ resource "aws_lambda_permission" "apigw_lambda" {
 
 #Gateway/Deployment
 
-resource "aws_api_gateway_deployment" "gatewaydeploy" {
+/* resource "aws_api_gateway_deployment" "gatewaydeploy" {
   rest_api_id = aws_api_gateway_rest_api.api.id
 
   triggers = {
@@ -142,4 +142,4 @@ resource "aws_api_gateway_stage" "gwstage" {
   deployment_id = aws_api_gateway_deployment.gatewaydeploy.id
   rest_api_id   = aws_api_gateway_rest_api.api.id
   stage_name    = "CRCPROD"
-} 
+}  */
