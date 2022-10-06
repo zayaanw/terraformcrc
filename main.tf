@@ -49,7 +49,7 @@ EOF
 
 resource "aws_iam_role_policy_attachment" "attach-dynamodb" {
   role       = aws_iam_role.iam_for_lambda.name
-  policy_arn = data.aws_iam_policy.dynamodbpolicy.json
+  policy_arn = aws_iam_policy.dynamodbpolicy.arn
 }
 
 /* #Lambda & DynamoDB 
