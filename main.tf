@@ -24,7 +24,7 @@ provider "aws" {
 #Polices & Roles
 
 data "aws_iam_policy" "dynamodbpolicy" {
-  name = "AmazonDynamoDBFullAccess"
+  arn = "arn:aws:iam::aws:policy/AmazonDynamoDBFullAccess"
 }
 
 resource "aws_iam_role" "iam_for_lambda" {
