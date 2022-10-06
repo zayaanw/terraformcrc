@@ -23,7 +23,7 @@ provider "aws" {
 
 #Polices & Roles
 
-/* data "aws_iam_policy" "dynamodbpolicy" {
+data "aws_iam_policy" "dynamodbpolicy" {
   name = "AmazonDynamoDBFullAccess"
 }
 
@@ -47,11 +47,11 @@ resource "aws_iam_role" "iam_for_lambda" {
 EOF
 }
 
-resource "aws_iam_role_policy_attachment" "attach-dynamodb" {
+/* resource "aws_iam_role_policy_attachment" "attach-dynamodb" {
   role       = aws_iam_role.iam_for_lambda.name
   policy_arn = "arn:aws:iam::aws:policy/AmazonDynamoDBFullAccess"
-}
- */
+} */
+
 // #Lambda & DynamoDB 
 
 /*  resource "aws_lambda_function" "Visitor_Lambda" {
