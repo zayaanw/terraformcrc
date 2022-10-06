@@ -49,10 +49,10 @@ EOF
 
 resource "aws_iam_role_policy_attachment" "attach-dynamodb" {
   role       = aws_iam_role.iam_for_lambda.name
-  policy_arn = data.aws_iam_policy.dynamodbpolicy.arn
+  policy_arn = data.aws_iam_policy.dynamodbpolicy.json
 }
 
-#Lambda & DynamoDB 
+/* #Lambda & DynamoDB 
 
 resource "aws_lambda_function" "Visitor_Lambda" {
   filename      = "lambda_function_payload_new.zip"
@@ -142,4 +142,4 @@ resource "aws_api_gateway_stage" "gwstage" {
   deployment_id = aws_api_gateway_deployment.gatewaydeploy.id
   rest_api_id   = aws_api_gateway_rest_api.api.id
   stage_name    = "CRCPROD"
-}
+} */
