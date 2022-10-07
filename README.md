@@ -1,3 +1,3 @@
-# Terraform - Cloud Resume Challenge Code
+# Terraform - Cloud Resume Challenge Infrastructure 
 
-This is the back-end IAC for the Cloud Resume Challenge. Github Actions automated deployment is still WIP.
+This is the back-end IAC for the Cloud Resume Challenge. Insfrastructure is deplyoed via Github Actions and Terraform Cloud.
